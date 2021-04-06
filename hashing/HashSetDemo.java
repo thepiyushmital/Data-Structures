@@ -6,6 +6,12 @@ class HashSetDemo{
 	
 	static HashSet<String> hashSet = new HashSet<String>();
 	
+	public Set convertArrayToHashSet(String[] str){
+		// Creating list out of primitive array doesnt require extra aux space
+
+		return new HashSet<String>(Arrays.asList(str));
+	}
+	
 	public static void main(String args[]){
 		/*
 		Main functions
