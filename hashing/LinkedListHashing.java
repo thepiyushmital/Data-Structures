@@ -1,9 +1,26 @@
 import java.util.*;
 
-
 class LinkedListHashing{
 	ArrayList<ArrayList<Integer>> hashArrayList;
 	int size = 7;
+	
+	class Point{
+		
+		int x;
+		int y;
+		
+		Point(int x, int y){
+			this.x = x;
+			this.y = y;
+		}
+		
+		public int getValue(){
+			return this.y;
+		}
+		public int getKey(){
+			return this.x;
+		}
+	}
 	
 	public LinkedListHashing(int size){
 		this.size = size;
@@ -36,9 +53,9 @@ class LinkedListHashing{
 		return;
 	}
 	
-	public int searchElement(int x){
+	public Point searchElement(int x){
 		int hash = x%size;
-		return Collections.binarySearch(hashArrayList.get(hash), x);		
+		return new Point(hash, Collections.binarySearch(hashArrayList.get(hash), x));		
 	}
 	
 	public void printElements(){
@@ -54,13 +71,15 @@ class LinkedListHashing{
 		linkListHash.insertElement(55);
 		linkListHash.insertElement(46);
 		linkListHash.insertElement(13);
-		System.out.println(linkListHash.searchElement(46));
-		System.out.println(linkListHash.searchElement(14));
+		System.out.println("Search 46, Level: " + linkListHash.searchElement(46).getKey());
+		System.out.println("Search 14, Level: " + linkListHash.searchElement(14).getKey());
 		
 		linkListHash.deleteElement(13);
 		linkListHash.insertElement(22);
 		linkListHash.insertElement(29);
 		linkListHash.insertElement(29);
+		
+		System.out.println("Search 22, Level: " + linkListHash.searchElement(29).getKey());
 		linkListHash.printElements();
 	}
 }
