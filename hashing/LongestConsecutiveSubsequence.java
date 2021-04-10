@@ -1,7 +1,6 @@
 import java.util.*;
 
 class LongestConsecutiveSubsequence{
-
 	public static int longestConsecutiveSubseq(Integer[] arr){
 		HashSet<Integer> set = new HashSet<Integer>(Arrays.asList(arr));
 		
